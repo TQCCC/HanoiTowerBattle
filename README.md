@@ -1,5 +1,5 @@
 # HanoiTowerBattle
-支持双人联机对战的汉诺塔游戏;
+
 
 Online Hanoi Tower;
 
@@ -17,7 +17,7 @@ firstClick;fromStickName   -- To show the top plate clearly on the stick with th
 secondClick;targetStickName  -- Move a plate from the stcik with a name of fromStickName to the stick with a name of targetStickName;
 
 win;time      -- Who finish the game sends back a "win;" and its time used.
-exit;         -- When one player exit the application or switch to the single game mode.
+exit;         -- When one player exits the application or switches to the single game mode.
 
 
 
