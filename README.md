@@ -1,10 +1,10 @@
 # HanoiTowerBattle
 
 
-#Online Hanoi Tower;
+# Online Hanoi Tower;
 
-#The net work is based on UDP protocal;
-#Net work data formation:
+# The net work is based on UDP protocal;
+# Net work data formation:
 
 join;         -- The player presses the buttonJoin and send a "join;", Who receives a "join;" is the main host.<br>
 connect;      -- The player sends back a "connect;" immed when receives a "join;".<br>
