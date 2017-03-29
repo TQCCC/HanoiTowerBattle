@@ -6,7 +6,7 @@ Online Hanoi Tower;
 The net work is based UDP protocal;
 Net work data formation:
 
-join;         -- The player presses the buttonJoin and send a "join;", Who receives a "join;" is the main host;
+join;         -- The player presses the buttonJoin and send a "join;", Who receives a "join;" is the main host;<br>
 connect;      -- The player sends back a "connect;" immed when receives a "join;";
 connected;    -- For the fair of the game, a confirm message is needed. When a player reveives a "connect;", sends back a "connected;" and
               -- waiting for the opponent(main host) presses the buttonStart.
