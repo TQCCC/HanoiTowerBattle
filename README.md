@@ -23,14 +23,14 @@ exit;         -- When one player exits the application or switches to the single
 
 <strong>
 <p>
-<font color='red'>
+<font>
   Game processing:
   1.Switch to the battle mode, choose a remote IP and who press the buttonJoin first is the main host. The application will be  listening to the port 8888.
   2.The sub host presses the buttonJoin and sends a "join;".
   3.The main host receives a "join;" from the sub host and sends back a "connect;" immediately.
   4.the sub host reveives a "connect;" sends back a "connected;" immediately to confirm the message, then waiting for the host pressing buttonStart.
   5.The main host presses buttonStart, the game begin!! 
-    
+   
 </font>
 </p>
 
