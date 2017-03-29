@@ -1,11 +1,11 @@
 # HanoiTowerBattle
 
 
-# Online Hanoi Tower;
+<h2>Online Hanoi Tower</h2>
 
-# The net work is based on UDP protocal;
-# Net work data formation:
-
+<h2>The net work is based on UDP protocal;</h2>
+<h2>Net work data formation:<h2>
+<strong>
 join;         -- The player presses the buttonJoin and send a "join;", Who receives a "join;" is the main host.<br>
 connect;      -- The player sends back a "connect;" immed when receives a "join;".<br>
 connected;    -- For the fair of the game, a confirm message is needed. When a player reveives a "connect;", sends back  <br>
@@ -19,7 +19,7 @@ secondClick;targetStickName  -- Move a plate from the stcik with a name of fromS
 win;time      -- Who finish the game sends back a "win;" and its time used.<br>
 exit;         -- When one player exits the application or switches to the single game mode.<br>
 
-
+</strong>
 
 
 
