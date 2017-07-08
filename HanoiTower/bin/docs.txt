@@ -1,0 +1,48 @@
+Send data formation: 
+
+join;							-- Clicks btnJoin, starts readThread and sends a "join;..".
+connect;						-- Send a "connect;.." when Host receives a "join;..".
+start;plateNumber				-- Host clicks btnStart and sends a "start;..", then game begins.
+
+-- for update the small window to show what is opponent doing
+firstClick;fromStickName		-- The top of the stick turns red, fromStick.
+secondClick;targetStickName			-- The toStick.
+win;time						-- Win.
+exit;							-- Received a "exit;" when the opponent exit the applicaiton or click btnExit.
+
+Application process:
+1.Datagram socket starts listening on port 8888.
+2.Host chooses a remote IP and clicks btnJoin.
+
+
+Game objects' layout:
+Plate:
+Plate max width: 200;
+Cut 15 when a plate's number adds 1;
+
+Stick:
+Stick width: 10;
+Stick height: 300;
+There are 200 pixels between two sticks;
+
+Main window:
+Width: 800;
+Height: 500;
+
+Small window:
+Two times smaller than the main window;
+Update when receiving a update type data;
+Width: 400;
+Height: 250;
+
+
+Game process in battle:
+1.The host receives a "join;" and  
+	the main panel shows a message:"Found a player, waiting for the confirm...",
+	and send back a "connect;plateCount;" immediately.
+2.And then the sub host receives the message from the host("connect;plateCount;"), 
+	renders the main panel and the opponent game panel.
+	sends back a "connected;" immediately.
+	wating for the host clicking btnStart.
+3.The host clicks btnStart and sends back a "start;" immediately.
+4.The game begins!!!
