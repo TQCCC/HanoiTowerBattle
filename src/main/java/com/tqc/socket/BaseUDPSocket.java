@@ -109,7 +109,6 @@ public class BaseUDPSocket {
 		/* start readThread */
 		isReading = true;
 		readThread = new Thread(new Runnable() {
-			@Override
 			public void run() {
 				read();
 			}

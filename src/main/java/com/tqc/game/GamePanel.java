@@ -1,8 +1,7 @@
 package com.tqc.game;
 
-import java.awt.Graphics;
-
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class GamePanel extends JPanel{
 	

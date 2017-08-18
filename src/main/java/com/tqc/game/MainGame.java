@@ -1,11 +1,9 @@
 package com.tqc.game;
 
-import java.awt.Color;
+import com.tqc.entity.Stick;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import com.tqc.entity.Plate;
-import com.tqc.entity.Stick;
 
 public class MainGame extends BaseGame {
 
@@ -91,9 +89,7 @@ public class MainGame extends BaseGame {
 
 		panel.addMouseListener(new MouseListener() {
 
-			@Override
 			public void mouseReleased(MouseEvent e) { }
-			@Override
 			public void mousePressed(MouseEvent e) {
 				int mx = e.getX();
 				int pw = (gameWidth >> 2);
@@ -113,11 +109,8 @@ public class MainGame extends BaseGame {
 				panelInstance.repaint();
 
 			}
-			@Override
 			public void mouseExited(MouseEvent e) { }
-			@Override
 			public void mouseEntered(MouseEvent e) { }
-			@Override
 			public void mouseClicked(MouseEvent e) { }
 		});
 

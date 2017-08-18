@@ -1,7 +1,6 @@
 package com.tqc.entity;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.Stack;
 
 public class Stick {

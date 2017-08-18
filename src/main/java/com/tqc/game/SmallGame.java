@@ -1,8 +1,5 @@
 package com.tqc.game;
 
-import java.awt.Color;
-
-import com.tqc.entity.Plate;
 import com.tqc.entity.Stick;
 
 public class SmallGame extends BaseGame{

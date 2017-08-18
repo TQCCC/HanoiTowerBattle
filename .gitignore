@@ -1,4 +1,3 @@
-./*/bin/
 *.jar
 *.war
 
@@ -6,3 +5,5 @@
 .project
 .settings
 .classpath
+HanoiTowerBattle.iml
+/target/

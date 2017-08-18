@@ -1,11 +1,9 @@
 package com.tqc.game;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-
 import com.tqc.entity.Plate;
 import com.tqc.entity.Stick;
+
+import java.awt.*;
 
 /*
  * Created by TQC 2017/3/23, Base Game
