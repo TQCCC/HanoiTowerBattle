@@ -15,7 +15,7 @@ A small panel on the right-top of the main panel shows every step of the opponen
 
 <h3>单机模式、局域网单挑模式</h3><br>
 
-右上角显示对手每一步动作<br>
+<h3>右上角小panel显示对手每一步动作</h3><br>
 
 <h1 align="center">
 	<img src="hanoi.png"/>
