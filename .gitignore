@@ -6,4 +6,5 @@
 .settings
 .classpath
 HanoiTowerBattle.iml
-/target/
+target/
+.idea/
