@@ -3,12 +3,6 @@
 
 <h2>Online Hanoi Tower</h2>
 
-
-Visual 2D game built in Java language.
-Single mode and online 1 on 1 mode.
-Quiz of intelligence, speed of your brain.
-A small panel on the right-top of the main panel shows every step of the opponent.
-
 <br>
 环境：Windows+Java1.8<br>
 下载地址： <a href="https://github.com/TQCCC/HanoiTowerBattle/raw/master/HanoiTowerBattle-1.0.jar">DOWNLOAD THIS GAME</a>	<br>
