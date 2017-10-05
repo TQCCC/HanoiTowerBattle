@@ -1,7 +1,7 @@
 # HanoiTowerBattle
 
 
-<h2>Online Hanoi Tower</h2>
+<h3>Online Hanoi Tower</h3>
 
 <br>
 环境：Windows+Java1.8<br>
