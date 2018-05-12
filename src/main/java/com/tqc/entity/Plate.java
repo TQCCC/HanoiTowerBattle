@@ -2,81 +2,117 @@ package com.tqc.entity;
 
 import java.awt.*;
 
+/**
+ * 盘子类
+ */
 public class Plate {
-    private int number;
-    private int width;
-    private int height;
-    private Color color;
+	/**
+	 * 尺寸
+	 */
+	private int size;
 
-    public static int DEFAULT_PLATE_WIDTH = 200;
-    public static int DEFAULT_PLATE_HEIGHT = 30;
+	/**
+	 * 颜色
+	 */
+	private Color color;
 
-    public Plate(int number) {
-        this.setNumber(number);
-        this.setWidth(DEFAULT_PLATE_WIDTH - (number - 1) * 15);
+	/**
+	 * 宽度，单位像素
+	 */
+	private int width;
 
-        this.setHeight(DEFAULT_PLATE_HEIGHT);
-        this.setColor(Color.BLACK);
+	/**
+	 * 高度，单位像素
+	 */
+	private int height;
 
-    }
+	/**
+	 * 一些默认值
+	 */
+	public static int DEFAULT_PLATE_WIDTH = 200;
+	public static int DEFAULT_PLATE_HEIGHT = 30;
 
-    public Plate(int number, int width, int height) {
-        this.setNumber(number);
-        this.setHeight(height);
-        this.setWidth(width - (number - 1) * 15);
-        this.setColor(Color.BLACK);
-    }
+	public Plate(int size) {
+		this.setSize(size);
+		this.setColor(Color.BLACK);
+//		根据尺寸设置宽度
+		this.setWidth(DEFAULT_PLATE_WIDTH - (size - 1) * 15);
+		this.setHeight(DEFAULT_PLATE_HEIGHT);
 
-    public Plate() {
-        this(1);
-    }
+	}
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
+	public Plate(int size, int width, int height) {
+		this.setSize(size);
+		this.setHeight(height);
+//		根据尺寸设置宽度
+		this.setWidth(width - (size - 1) * 15);
+		this.setColor(Color.BLACK);
+	}
 
-    public int getNumber() {
-        return number;
-    }
+	public Plate() {
+		this(1);
+	}
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+	public void setSize(int size) {
+		this.size = size;
+	}
 
-    public int getWidth() {
-        return width;
-    }
+	public int getSize() {
+		return size;
+	}
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+	public void setWidth(int width) {
+		this.width = width;
+	}
 
-    public int getHeight() {
-        return height;
-    }
+	public int getWidth() {
+		return width;
+	}
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
-    public Color getColor() {
-        return color;
-    }
+	public int getHeight() {
+		return height;
+	}
 
-    public static void drawPlate(Graphics graphics, Plate plate, int x, int y) {
+	public void setColor(Color color) {
+		this.color = color;
+	}
 
-        if (plate != null) {
-            int width = plate.getWidth();
-            int height = plate.getHeight();
+	public Color getColor() {
+		return color;
+	}
 
-            graphics.setColor(plate.getColor());
-            graphics.fillRect(x, y, width, height);
-            graphics.setColor(Color.WHITE);
-            graphics.drawRect(x, y, width, height);
 
-            graphics.setFont(new Font("", Font.BOLD, 15));
-            graphics.drawString("" + plate.getNumber(), x + (width >> 1), y + (height >> 1));
-        }
-    }
+	/**
+	 * 渲染时调用
+	 *
+	 * @param graphics
+	 * @param plate
+	 * @param x
+	 * @param y
+	 */
+	public static void drawPlate(Graphics graphics, Plate plate, int x, int y) {
+
+		if (plate == null) {
+			return;
+		}
+
+		int width = plate.getWidth();
+		int height = plate.getHeight();
+
+		graphics.setColor(plate.getColor());
+		graphics.fillRect(x, y, width, height);
+
+//		画边框
+		graphics.setColor(Color.WHITE);
+		graphics.drawRect(x, y, width, height);
+
+		graphics.setFont(new Font("", Font.BOLD, 15));
+//			文字居中
+		graphics.drawString("" + plate.getSize(), x + (width >> 1), y + (height >> 1));
+	}
 
 }

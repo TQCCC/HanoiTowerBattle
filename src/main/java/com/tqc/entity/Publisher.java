@@ -2,7 +2,10 @@ package com.tqc.entity;
 
 import java.util.Observable;
 
-public class Publisher extends Observable{
+/**
+ * 消息模式中的发布者
+ */
+public class Publisher extends Observable {
 
 	@Override
 	public void notifyObservers(Object arg) {
@@ -11,5 +14,5 @@ public class Publisher extends Observable{
 		}
 		super.notifyObservers(arg);
 	}
-	
+
 }

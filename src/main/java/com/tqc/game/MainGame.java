@@ -5,6 +5,9 @@ import com.tqc.entity.Stick;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * 主游戏逻辑
+ */
 public class MainGame extends BaseGame {
 
 	private GameAware gameAware;
@@ -17,10 +20,11 @@ public class MainGame extends BaseGame {
 	public GameAware getGameAware() {
 		return gameAware;
 	}
+
 	public void setGameAware(GameAware gameAware) {
 		this.gameAware = gameAware;
 	}
-	
+
 	public MainGame() {
 		this(DEFAULT_GAME_WIDTH, DEFAULT_GAME_HEIGHT, null);
 	}
@@ -30,52 +34,70 @@ public class MainGame extends BaseGame {
 		addPanelAction(panel);
 	}
 
+	/**
+	 * 处理点击到的柱子
+	 *
+	 * @param clickStick
+	 */
 	private void handleClick(Stick clickStick) {
+
 		clickCount++;
 
 		if (clickCount == 1) {
+
+			if (clickStick.isEmpty()) {
+				clickCount = 0;
+				return;
+			}
+
+//			第一次点击选中目标盘子
 			clickStick.showTopClearly();
 			fromStick = clickStick;
 
-			/* Send "firstClick;fromStickName" */
 			if (gameAware != null) {
 				gameAware.OnFirstClick(fromStick.getName());
 			}
 
-		} else if (clickCount == 2) {
+			return;
+		}
+
+		if (clickCount == 2) {
+//			第二次点击移动盘子
 			clickStick.hideTopClearly();
 			clickCount = 0;
 			targetStick = clickStick;
 
-			/* Send "secondClick;targetStickName" */
 			if (gameAware != null) {
-				
 				gameAware.OnSecondClick(fromStick.getName(), targetStick.getName());
 			}
-			
+
+//			移动盘子
 			moveToStick(fromStick, targetStick);
-			/* Judge win */
+
+
+//			判断胜利条件
 			if (stick3.getPlateStack().size() == plateCount) {
-				/* Send a "win;" */
 				if (gameAware != null) {
 					if (gameAware.OnNextLevel(plateCount)) {
 						nextLevel();
 					}
-				}else{
-					nextLevel();
+					return;
 				}
+				nextLevel();
 			}
 		}
 
 	}
 
+	/**
+	 * 下一关
+	 */
 	public void nextLevel() {
+//		最后一关通过
 		if (plateCount == MAX_LEVEL) {
-			// "You have completed all levels, You are a master!"
-			if (gameAware!=null) {
+			if (gameAware != null) {
 				gameAware.OnComplete(plateCount);
 			}
-			
 			return;
 		}
 
@@ -85,42 +107,81 @@ public class MainGame extends BaseGame {
 		return;
 	}
 
+	/**
+	 * @param panel
+	 */
 	public void addPanelAction(GamePanel panel) {
 
 		panel.addMouseListener(new MouseListener() {
 
-			public void mouseReleased(MouseEvent e) { }
+			public void mouseReleased(MouseEvent e) {
+			}
+
 			public void mousePressed(MouseEvent e) {
 				int mx = e.getX();
 				int pw = (gameWidth >> 2);
 
-				// Click stick1
+				// 点击 stick1
 				if (mx < (pw + (pw >> 1))) {
 					handleClick(stick1);
 				}
-				// Click stick2
+				// 点击 stick2
 				if (mx >= (pw + (pw >> 1)) && mx < ((pw << 1) + (pw >> 1))) {
 					handleClick(stick2);
 				}
-				// Click stick3
+				// 点击 stick3
 				if (mx >= ((pw << 1) + (pw >> 1))) {
 					handleClick(stick3);
 				}
 				panelInstance.repaint();
 
 			}
-			public void mouseExited(MouseEvent e) { }
-			public void mouseEntered(MouseEvent e) { }
-			public void mouseClicked(MouseEvent e) { }
+
+			public void mouseExited(MouseEvent e) {
+			}
+
+			public void mouseEntered(MouseEvent e) {
+			}
+
+			public void mouseClicked(MouseEvent e) {
+			}
 		});
 
 	}
 
+	/**
+	 * 获取游戏逻辑点
+	 */
 	public interface GameAware {
-		public boolean OnNextLevel(int level);
-		public void OnFirstClick(String stickName);
-		public void OnSecondClick(String fromStickName, String targetStickName);
-		public void OnComplete(int plateCount);
+		/**
+		 * 当下一关时触发
+		 *
+		 * @param level
+		 * @return
+		 */
+		boolean OnNextLevel(int level);
+
+		/**
+		 * 第一次点击某柱子
+		 *
+		 * @param stickName
+		 */
+		void OnFirstClick(String stickName);
+
+		/**
+		 * 第二次点击某柱子
+		 *
+		 * @param fromStickName
+		 * @param targetStickName
+		 */
+		void OnSecondClick(String fromStickName, String targetStickName);
+
+		/**
+		 * 完成最大关卡
+		 *
+		 * @param plateCount
+		 */
+		void OnComplete(int plateCount);
 	}
 
 }
