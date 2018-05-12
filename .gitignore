@@ -1,9 +1,12 @@
-*.war
-
-#eclipse
+# Eclipse
 .project
 .settings
 .classpath
-HanoiTowerBattle.iml
-target/
-.idea/
+
+# IDEA
+*.iml
+.idea
+
+# others
+target
+*.war
